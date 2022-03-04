@@ -38,6 +38,19 @@ void loop() {
   }
 }
 
+//  if(ps4.Connected){
+   int Motor1 = ps4.Motor(LY);
+   int Motor2 = ps4.Motor(RY);
+
+   prizm.setMotorPowers(Motor1,Motor2);
+
+   if(ps4.Button(CROSS)){
+    Stop();
+   }
+  }
+}
+
+
 void Forward(){
   prizm.setMotorPowers(100,100);
 }
