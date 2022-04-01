@@ -3,17 +3,26 @@ PRIZM prizm;
 
 void setup() {
 
-  prizm.PrizmBegin();        
+  prizm.PrizmBegin();
+  prizm.setMotorInvert(1,1);
   prizm.setServoSpeed(1,25);  
 
 }
 
-void loop() {     // repeat in a loop
+void loop() {
+  if(prizm.readLineSensor(3) == 0){
+     prizm.setMotorPowers(125,30);
+  }
+  if(prizm.readLineSensor(3) == 1){
+    prizm.setMotorPowers(30,125);
+  }
+}
 
-  prizm.setServoPosition(1,80);  
+
+void Claw(){
+ prizm.setServoPosition(1,80);  
   delay(500);                   
                                  
   prizm.setServoPosition(1,55);    
   delay(500);                    
- 
 }
